@@ -94,7 +94,9 @@ export default function DashboardCalls() {
                 contacted: contacted,
                 rate: totalSelected > 0 ? Math.round((contacted / totalSelected) * 100) : 0
             },
-            allCallsForAdvisor: allCalls.filter(c => asesorSel === 'todos' || c.advisorName === asesorSel)
+            allCallsForAdvisor: allCalls
+                .filter(c => asesorSel === 'todos' || c.advisorName === asesorSel)
+                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         };
     }, [periodoSel, asesorSel, callsData]);
 
@@ -199,9 +201,6 @@ export default function DashboardCalls() {
                                 <RefreshCw size={12} className={loading ? 'animate-spin' : ''} />
                                 {loading ? 'ACTUALIZANDO...' : 'REFRESCAR'}
                             </button>
-                        </div>
-                        <div className="text-[10px] text-slate-400 italic">
-                            Filtrando {stats.total} registros de un total de {callsData.summary.totalCalls}
                         </div>
                     </div>
 
