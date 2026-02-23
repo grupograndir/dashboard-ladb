@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gfare-inspired Light Theme Palette */
+  --color-border: hsl(214 20% 90%);
+  --color-input: hsl(214 20% 90%);
+  --color-ring: hsl(216 79% 20%);
+  /* #0B2C5C */
+  --color-background: hsl(0 0% 100%);
+  /* White */
+  --color-foreground: hsl(216 20% 15%);
+  /* Dark Gray/Blue for text */
+
+  --color-primary: hsl(216 79% 20%);
+  /* #0B2C5C Navy */
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(212 100% 28%);
+  /* #00438F Bright Blue */
+  --color-secondary-foreground: hsl(0 0% 100%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  --color-muted: hsl(210 40% 96.1%);
+  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+
+  --color-accent: hsl(210 40% 96.1%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222.2 47.4% 11.2%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222.2 47.4% 11.2%);
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+/* Base Shadcn Variables (Manual HSL values matching above) */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 216 20% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 216 20% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 216 20% 15%;
+  --primary: 216 79% 20%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 212 100% 28%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 216 79% 20%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Keeping Dark Mode as an option but optimizing for Light Mode default */
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--background);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: hsl(216 79% 20% / 0.15);
+    color: hsl(216 79% 20%);
+  }
+
+  /* Smooth focus rings */
+  *:focus-visible {
+    outline: 2px solid hsl(216 79% 20% / 0.5);
+    outline-offset: 2px;
+    transition: outline-offset 0.2s ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(216 79% 20% / 0.15);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(216 79% 20% / 0.3);
+  }
+}
